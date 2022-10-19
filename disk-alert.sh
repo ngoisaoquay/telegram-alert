@@ -2,7 +2,7 @@
 # Purpose: Monitor Linux disk space and send an email alert to $ADMIN
 ALERT=20 # alert level
 ADMIN="ngoisaoquay" # dev/sysadmin email ID
-hostname="VRTOWN-SERVER"
+hostname=`hostname`
 df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5 " " $1 }' | while read -r output;
 do
   echo "$output"
